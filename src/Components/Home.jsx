@@ -5,6 +5,7 @@ import { FaShieldAlt } from "react-icons/fa";
 import { IoHeadset } from "react-icons/io5";
 import { discoutProducts } from './AllData';
 import { FaStar } from "react-icons/fa6";
+import { CiCirclePlus } from "react-icons/ci";
 
 console.log(discoutProducts);
 
@@ -50,17 +51,17 @@ const Home = () => {
             {/* forbigdiscount */}
 
             <h1>Big Discount</h1><br />
-            <div className="container">
+            <div className="container ">
                 <div className="card-group ">
                     {
                         discoutProducts && discoutProducts.map((discount) => (
                             <div className="card" style={{width:'18rem'}}>
-                                <p style={{width:'50px',backgroundColor:'blue',borderRadius:'20px',color:'white',fontSize:'10px'}}>{discount.discount}%Off</p>
+                                <p style={{width:'55px',backgroundColor:' rgb(3, 3, 121)',borderRadius:'20px',color:'white',fontSize:'12px',height:'22px',margin:'10px'}}>{discount.discount}%Off</p>
                                 <img src={discount.imgUrl} className="card-img-top" alt="..."></img>
                                 <div className="card-body">
                                     <h3>{discount.productName}</h3>
                                     <p className="card-text"><FaStar color='gold'/><FaStar color='gold'/><FaStar color='gold'/><FaStar color='gold'/><FaStar color='gold'/></p>
-                                    <h3>{discount.price}</h3>
+                                    <span><h3>{discount.price}</h3><CiCirclePlus/></span>
                                 </div>
                             </div>
                         ))
