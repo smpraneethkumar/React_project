@@ -26,8 +26,8 @@ const Header = () => {
           
         </li>
         <li className="nav-item" >
-          <MdAccountCircle/>
-          <IoMdCart/>
+          <MdAccountCircle size={23}/>
+          <IoMdCart size={23}/>
         </li>
         
       </ul>

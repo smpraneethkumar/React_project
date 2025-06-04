@@ -6,13 +6,46 @@ import { IoHeadset } from "react-icons/io5";
 import { discoutProducts } from './AllData';
 import { FaStar } from "react-icons/fa6";
 import { CiCirclePlus } from "react-icons/ci";
+import {SliderData} from './AllData';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-console.log(discoutProducts);
 
 
 const Home = () => {
+    const settings ={
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow:1,
+        slidesToScroll:1
+    }
     return (
+
         <div  >
+
+            <div className="card mb-3" style={{maxwidth:'540px'}}>
+                <Slider {...settings}>
+               {
+                SliderData.map((slider)=>(
+                     <div className="row g-0">
+                    <div className="col-md-4">
+                         <h5 className="card-title">{slider.title}</h5>
+                            <p className="card-text">{slider.desc}</p>
+                            <p className="card-text"><small className="text-body-secondary"><button>Visit Collections</button></small></p>
+                    </div>
+                    <div className="col-md-8">
+                        <div className="card-body">
+                             <img src={slider.cover} className="img-fluid rounded-start" alt="..."></img>
+                        </div>
+                    </div>
+                </div>
+                ))
+               }
+               </Slider>
+            </div>
+            {/* the four card  */}
             <div className="container">
                 <div className="row justify-content-center p-2 gap-3">
                     <div className="card " style={{ width: '18rem', textAlign: 'center', padding: '25px', backgroundColor: ' rgb(241, 230, 232)', border: 'none' }}>
@@ -49,25 +82,42 @@ const Home = () => {
                 </div>
             </div> <br /><br />
             {/* forbigdiscount */}
-
-            <h1>Big Discount</h1><br />
-            <div className="container ">
-                <div className="card-group ">
+            <div className="container" style={{ backgroundColor: 'whitesmoke', padding: '100px' }}>
+                <h1>Big Discount</h1><br />
+                <div className="card-group gap-4 ">
                     {
                         discoutProducts && discoutProducts.map((discount) => (
-                            <div className="card" style={{width:'18rem'}}>
-                                <p style={{width:'55px',backgroundColor:' rgb(3, 3, 121)',borderRadius:'20px',color:'white',fontSize:'12px',height:'22px',margin:'10px'}}>{discount.discount}%Off</p>
+                            <div className="card " style={{ width: '20rem', margin: '0 10px' }}>
+                                <p style={{ width: '55px', backgroundColor: ' rgb(3, 3, 121)', borderRadius: '20px', color: 'white', fontSize: '12px', height: '22px', margin: '10px' }}>{discount.discount}%Off</p>
                                 <img src={discount.imgUrl} className="card-img-top" alt="..."></img>
                                 <div className="card-body">
                                     <h3>{discount.productName}</h3>
-                                    <p className="card-text"><FaStar color='gold'/><FaStar color='gold'/><FaStar color='gold'/><FaStar color='gold'/><FaStar color='gold'/></p>
-                                    <span><h3>{discount.price}</h3><CiCirclePlus/></span>
+                                    <p className="card-text"><FaStar color='gold' /><FaStar color='gold' /><FaStar color='gold' /><FaStar color='gold' /><FaStar color='gold' /></p>
+                                    <span><h3>{discount.price}</h3><CiCirclePlus /></span>
                                 </div>
                             </div>
                         ))
                     }
                 </div>
-
+            </div>
+            {/* new arrives */}
+            <div className="container">
+                <h1>Big Discount</h1><br />
+                <div className="card-group gap-4 ">
+                    {
+                        discoutProducts && discoutProducts.map((discount) => (
+                            <div className="card " style={{ width: '20rem' }}>
+                                <p style={{ width: '55px', backgroundColor: ' rgb(3, 3, 121)', borderRadius: '20px', color: 'white', fontSize: '12px', height: '22px', margin: '10px' }}>{discount.discount}%Off</p>
+                                <img src={discount.imgUrl} className="card-img-top" alt="..."></img>
+                                <div className="card-body">
+                                    <h3>{discount.productName}</h3>
+                                    <p className="card-text"><FaStar color='gold' /><FaStar color='gold' /><FaStar color='gold' /><FaStar color='gold' /><FaStar color='gold' /></p>
+                                    <span><h3>{discount.price}</h3><CiCirclePlus /></span>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
 
 
