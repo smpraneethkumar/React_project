@@ -10,40 +10,47 @@ import {SliderData} from './AllData';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from 'react-router-dom';
 
 
 
 const Home = () => {
     const settings ={
-        dots: true,
+        dots: false,
         infinite: true,
-        speed: 500,
+        speed: 100,
         slidesToShow:1,
         slidesToScroll:1
     }
     return (
 
         <div  >
-
-            <div className="card mb-3" style={{maxwidth:'540px'}}>
+            <div style={{backgroundColor:'whitesmoke'}}>
+            <div className="container" >
+                
                 <Slider {...settings}>
                {
                 SliderData.map((slider)=>(
-                     <div className="row g-0">
-                    <div className="col-md-4">
-                         <h5 className="card-title">{slider.title}</h5>
+                     <div className="row d-flex" key={slider.id}>
+                    <div className="col-lg-5">
+                         <h1 className="card-title ">{slider.title}</h1>
                             <p className="card-text">{slider.desc}</p>
                             <p className="card-text"><small className="text-body-secondary"><button>Visit Collections</button></small></p>
                     </div>
-                    <div className="col-md-8">
-                        <div className="card-body">
-                             <img src={slider.cover} className="img-fluid rounded-start" alt="..."></img>
-                        </div>
+                    <div className="col-lg-2">
+                        
+                    </div>
+                    <div className="col-lg-5">
+                        
+                             <img src={slider.cover} className="img-fluid" alt="..."></img>
+
                     </div>
                 </div>
                 ))
                }
                </Slider>
+              
+            </div>
             </div>
             {/* the four card  */}
             <div className="container">
@@ -87,7 +94,8 @@ const Home = () => {
                 <div className="card-group gap-4 ">
                     {
                         discoutProducts && discoutProducts.map((discount) => (
-                            <div className="card " style={{ width: '20rem', margin: '0 10px' }}>
+                            <Link to={`/home`}>
+                                <div className="card " style={{ width: '20rem', margin: '0 10px' }}>
                                 <p style={{ width: '55px', backgroundColor: ' rgb(3, 3, 121)', borderRadius: '20px', color: 'white', fontSize: '12px', height: '22px', margin: '10px' }}>{discount.discount}%Off</p>
                                 <img src={discount.imgUrl} className="card-img-top" alt="..."></img>
                                 <div className="card-body">
@@ -95,7 +103,8 @@ const Home = () => {
                                     <p className="card-text"><FaStar color='gold' /><FaStar color='gold' /><FaStar color='gold' /><FaStar color='gold' /><FaStar color='gold' /></p>
                                     <span><h3>{discount.price}</h3><CiCirclePlus /></span>
                                 </div>
-                            </div>
+                            </div> 
+                            </Link>
                         ))
                     }
                 </div>
