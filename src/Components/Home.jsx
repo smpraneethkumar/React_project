@@ -38,7 +38,7 @@ const Home = () => {
                             <p className="card-text"><small className="text-body-secondary"><button>Visit Collections</button></small></p>
                     </div>
                     <div className="col-lg-2">
-                        
+                         
                     </div>
                     <div className="col-lg-5">
                         

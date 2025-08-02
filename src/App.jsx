@@ -2,7 +2,8 @@ import { useState } from 'react'
 import './App.css'
 
 import Routing from './Routes/Routing'
-import Header from './Components/Header'
+
+import { Forms } from './Components/Forms'
 
 
 function App() {
@@ -10,9 +11,10 @@ function App() {
 
   return (
     <>
-      <Header/>
-      <Routing/> 
-    
+    <Forms/>
+    {/* //   <Header/> */}
+     {/* <Routing/>  */}
+    {/* <Dummay/> */}
     </>
   )
 }

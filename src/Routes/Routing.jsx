@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom'
 import Home from '../Components/Home'
 import Shop from '../Components/Shop'
 import Cart from '../Components/Cart'
+import ProductDetail from '../Components/ProductDetail'
+
 
 export class Routing extends Component {
   render() {
@@ -11,6 +13,7 @@ export class Routing extends Component {
         <Route path='/' element={<Home/>}/>
         <Route path='/shop' element={<Shop/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/productdetail' element={<ProductDetail/>}/>
       </Routes>
     )
   }
